@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import  Head  from './head'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,7 @@ export default function RootLayout({
     <Head/>
         {children}
      
-        <script src="/scripts/app.js"></script>
+        <Script  src="/scripts/app.js"></Script>
 
         {/* <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
