@@ -25,11 +25,11 @@ export default function RootLayout({
     <Head/>
         {children}
      
-        <Script  src="/scripts/app.js"></Script>
+        <Script  type="module"  src="/scripts/app.js"></Script>
 
-        {/* <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div className="relative z-14" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
-  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  {/* <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
   <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
     <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -45,7 +45,19 @@ export default function RootLayout({
             <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
               <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">Deactivate account</h3>
               <div className="mt-2">
-                <p className="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
+              <h1>Política de Uso para Aplicação com API do Chat GPT</h1>
+
+<h2 className="text-base fontbold" >Objetivo:</h2>
+<p>Esta política define as diretrizes para o uso da API do Chat GPT em uma aplicação dedicada a experimentos e educação infantil. O principal objetivo é garantir um ambiente seguro, educativo e ético para as crianças, promovendo a aprendizagem e a exploração criativa, ao mesmo tempo em que respeita os padrões de privacidade e segurança.</p>
+
+<h2>1. Controle de Acesso:</h2>
+<p>O acesso à aplicação e à API do Chat GPT é restrito a usuários registrados e autorizados. A autenticação é necessária para garantir que apenas educadores, pais ou responsáveis legais tenham controle sobre o uso da aplicação por parte das crianças.</p>
+
+<h2>10. Canal de Comunicação Aberto:</h2>
+<p>Será disponibilizado um canal de comunicação para os usuários, permitindo que pais, responsáveis e educadores forneçam feedback, relatem problemas ou façam sugestões para a melhoria contínua da aplicação.</p>
+
+<p>Ao concordar com esta política, os usuários comprometem-se a respeitar os termos estabelecidos para garantir um ambiente seguro, educativo e positivo para as crianças. O não cumprimento destas diretrizes poderá resultar na restrição ou suspensão do acesso à aplicação.</p>
+
               </div>
             </div>
           </div>
@@ -56,8 +68,8 @@ export default function RootLayout({
         </div>
       </div>
     </div>
-  </div>
-</div> */}
+  </div> */}
+</div>
 
         </body>
     </html>

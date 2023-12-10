@@ -1,3 +1,4 @@
+
 const btn = document.querySelector('.talk');
 const content = document.querySelector('.fala');
 
@@ -40,6 +41,9 @@ window.addEventListener('load', ()=>{
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
+const synth = window.SpeechSynthesisVoice;
+
+
 recognition.onresult = (event) => {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
@@ -54,22 +58,19 @@ recognition.onresult = (event) => {
 
 const element = document.getElementById('mic');
 element.onclick = function () {recognition.start(); };
-// btn.addEventListener('click', ()=>{
-    
-// })
 
 function speakThis(message) {
     const speech = new SpeechSynthesisUtterance();
 
     // speech.text = "Não entedi, pode repetir?";
-
+    var retorno = false;
     if(message.includes('oi') || message.includes('nome')) {
         var edit_save = document.getElementById("alien");
         edit_save.src = "./img/etelvina4.png";   
         const finalText = "Haalloooooo terraqueo! Meu nome é Harley, Você está pronto para uma aventura de outro planeta? Busquem conhecimento!";
         speech.text = finalText;
         responseTextarea.value = finalText;
-        
+        retorno = true;
     }
 
     else if(message.includes('voar')) {
@@ -78,19 +79,29 @@ function speakThis(message) {
         const finalText = "Estou indo passar férias no meu planeta, quer uma carona na minha nave supersonica? ";
         speech.text = finalText;
         responseTextarea.value = finalText;
-        
+        retorno = true;
     }
 
-    var voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[10]; // Note: some voices don't support altering params
-    speech.volume = 1;
-    speech.pitch = 1;
-    speech.rate = 1;
+window.speechSynthesis.onvoiceschanged = function() {
+        var voices =   window.speechSynthesis.getVoices();
+        speech.voice = voices[10]; // Note: some voices don't support altering params
+        speech.volume = 1;
+        speech.pitch = 1;
+        speech.rate = 1;
+
+          
     if(speech.text != ""){
         window.speechSynthesis.speak(speech);
-        return true;
+        retorno = true;
+        return retorno;
     }
-    return false; 
+     
+    };
+ 
+   
+        return retorno; 
+    
+    
 }
 
 
@@ -111,8 +122,6 @@ function speakThisGPT(message) {
 const mytextInput = document.getElementById('mytext');
 const responseTextarea = document.getElementById('response');
 
-const API_KEY = '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';
-
 async function chatGPT(mytext){
     if (mytext) {
         try {
@@ -120,7 +129,7 @@ async function chatGPT(mytext){
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${API_KEY}`,
+                    'Authorization': `Bearer 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`,
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
